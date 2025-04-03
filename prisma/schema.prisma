@@ -12,3 +12,71 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String   
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  animals Animal[]  
+}
+
+model Animal {
+  id            Int     @id @default(autoincrement())
+  userId        Int
+  identification String @unique
+  name          String
+  species       String
+  breed         String?
+  birthDate     DateTime
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sensors Sensor[]
+  alerts  Alert[]
+}
+
+model Sensor {
+  id              Int     @id @default(autoincrement())
+  animalId        Int
+  type            String
+  installationDate DateTime
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  animal    Animal  @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  data      SensorData[]
+  alerts    Alert[] 
+}
+
+model SensorData {
+  id         Int     @id @default(autoincrement())
+  sensorId   Int
+  recordedAt DateTime
+  value      Float
+  latitude   Float?
+  longitude  Float?
+  
+  sensor     Sensor  @relation(fields: [sensorId], references: [id], onDelete: Cascade)
+  alerts     Alert[] 
+}
+
+model Alert {
+  id           Int     @id @default(autoincrement())
+  animalId     Int
+  sensorId     Int?
+  sensorDataId Int?
+  alertMessage String
+  alertType    String
+  status       String
+  createdAt    DateTime @default(now())
+  resolvedAt   DateTime?
+
+  animal      Animal    @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  sensor      Sensor?   @relation(fields: [sensorId], references: [id], onDelete: SetNull)
+  sensorData  SensorData? @relation(fields: [sensorDataId], references: [id], onDelete: SetNull)
+}
