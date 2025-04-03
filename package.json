@@ -1,0 +1,32 @@
+{
+  "name": "monitoramento-saude-animal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/interfaces/http/server.ts",
+    "build": "npx tsc",
+    "start": "node dist/src/interfaces/http/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rafael-Julio-2242/Monitoramento-saude-animal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rafael-Julio-2242/Monitoramento-saude-animal/issues"
+  },
+  "homepage": "https://github.com/Rafael-Julio-2242/Monitoramento-saude-animal#readme",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "prisma": "^6.5.0",
+    "typescript": "^5.8.2"
+  }
+}
