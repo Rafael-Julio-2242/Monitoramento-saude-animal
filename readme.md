@@ -16,7 +16,7 @@ Progresso de features:
 
 ### Regras de Negócio
 
-* **Cadastro e Identificação dos Animais: 🚀**
+* **Cadastro e Identificação dos Animais: 🚧**
   * **Registro Detalhado:** Cada animal deve ter um cadastro único, com informações como identificação (RFID, código de barras), espécie, raça, data de nascimento, histórico de vacinação e tratamentos.
   * **Integração com Sensores:** Integrar dispositivos wearable que monitoram sinais vitais (temperatura, atividade, localização) e associar esses dados ao perfil do animal.
 * **Monitoramento em Tempo Real e Alertas: 🚀**
