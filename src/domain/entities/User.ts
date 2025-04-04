@@ -1,6 +1,7 @@
 import { UserResponseDTO } from "../../application/dto/UserResponseDTO";
 import { Result } from "../../shared/core/Result";
 import z from 'zod';
+import { IPasswordService } from "../services/IPasswordService";
 
 export class User {
 
@@ -11,7 +12,8 @@ export class User {
     private email: string,
     private password: string,
     private createdAt: Date,
-    private updatedAt: Date
+    private updatedAt: Date,
+    private passwordService: IPasswordService
   ) {}
 
   changeName(newName: string): Result<void> {
@@ -32,12 +34,17 @@ export class User {
     return Result.success();
   }
 
-  changePassword(newPassword: string): Result<void> { // TODO Adicionar mais validações de senha
+  async changePassword(newPassword: string): Promise<Result<void>> {
     if (newPassword.length <= 0) {
       return Result.failure('Password cannot be empty');
     }
 
-    this.password = newPassword;
+    const hashResult = await this.passwordService.generateHash(newPassword);
+    if (hashResult.isFailure) {
+      return Result.failure(hashResult.message);
+    }
+
+    this.password = hashResult.value;
     return Result.success();
   }
 

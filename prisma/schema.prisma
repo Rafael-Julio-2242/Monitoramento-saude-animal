@@ -80,3 +80,12 @@ model Alert {
   sensor      Sensor?   @relation(fields: [sensorId], references: [id], onDelete: SetNull)
   sensorData  SensorData? @relation(fields: [sensorDataId], references: [id], onDelete: SetNull)
 }
+
+model Log {
+  id        Int      @id @default(autoincrement())
+  timestamp DateTime @default(now())
+  level     String
+  message   String
+  meta      Json?
+  source    String?  
+}
