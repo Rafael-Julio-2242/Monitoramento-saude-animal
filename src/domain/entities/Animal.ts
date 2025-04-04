@@ -35,8 +35,6 @@ class Animal {
   this.treatments = treatments
  }
 
- 
-
  changeUserId(newUserId: number): Result<void> { 
 
   if (newUserId <= 0) {
