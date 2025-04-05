@@ -1,4 +1,4 @@
-import { AnimalResponseDTO } from "../../application/dto/AnimalResponseDTO"
+import { AnimalResponseDTO } from "../../application/dto/Animal/AnimalResponseDTO"
 import { Result } from "../../shared/core/Result"
 import { Species } from "../valueObjects/Species"
 
@@ -19,10 +19,10 @@ class Animal {
   name: string,
   identification: string,
   species: Species,
-  breed: string,
   birthDate: Date,
   vaccinationHistory: string,
-  treatments: string
+  treatments: string,
+  breed?: string,
  ) {
   this.id = id
   this.userId = userId
@@ -33,6 +33,15 @@ class Animal {
   this.birthDate = birthDate
   this.vaccinationHistory = vaccinationHistory
   this.treatments = treatments
+ }
+
+ changeName(newName: string): Result<void> {
+  if (newName.length <= 0) {
+    return Result.failure('Name cannot be empty!');
+  }
+
+  this.name = newName;
+  return Result.success();
  }
 
  changeUserId(newUserId: number): Result<void> { 
@@ -106,6 +115,7 @@ class Animal {
  toDTO(): AnimalResponseDTO {
   return {
    id: this.id,
+   userId: this.userId,
    identification: this.identification,
    name: this.name,
    species: this.species.getValue(),

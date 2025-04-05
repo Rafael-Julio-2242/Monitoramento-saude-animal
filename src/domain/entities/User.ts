@@ -1,10 +1,9 @@
-import { UserResponseDTO } from "../../application/dto/UserResponseDTO";
+import { UserResponseDTO } from "../../application/dto/User/UserResponseDTO";
 import { Result } from "../../shared/core/Result";
 import z from 'zod';
 import { IPasswordService } from "../services/IPasswordService";
 
 export class User {
-
 
   constructor(
     private id: number,
