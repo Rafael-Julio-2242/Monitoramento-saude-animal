@@ -1,5 +1,3 @@
-import { CreateAnimalDTO } from "../../application/dto/Animal/CreateAnimalDTO";
-import { UpdateAnimalDTO } from "../../application/dto/Animal/UpdateAnimalDTO";
 import { Result } from "../../shared/core/Result";
 import { Animal } from "../entities/Animal";
 

@@ -1,7 +1,7 @@
+import { UserDTO } from "../../application/dto/User/UserDTO";
 import { UserResponseDTO } from "../../application/dto/User/UserResponseDTO";
 import { Result } from "../../shared/core/Result";
 import z from 'zod';
-import { IPasswordService } from "../services/IPasswordService";
 
 export class User {
 
@@ -12,7 +12,6 @@ export class User {
     private password: string,
     private createdAt: Date,
     private updatedAt: Date,
-    private passwordService: IPasswordService
   ) {}
 
   changeName(newName: string): Result<void> {
@@ -38,16 +37,11 @@ export class User {
       return Result.failure('Password cannot be empty');
     }
 
-    const hashResult = await this.passwordService.generateHash(newPassword);
-    if (hashResult.isFailure) {
-      return Result.failure(hashResult.message);
-    }
-
-    this.password = hashResult.value;
+    this.password = newPassword;
     return Result.success();
   }
 
-  toDTO(): UserResponseDTO {
+  toResponseDTO(): UserResponseDTO {
     return {
       id: this.id,
       name: this.name,
@@ -56,5 +50,17 @@ export class User {
       updatedAt: this.updatedAt
     }
   }
+
+  toDTO(): UserDTO {
+    return {
+      id: this.id,
+      name: this.name,
+      email: this.email,
+      password: this.password,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt
+    }
+  }
+
 
 }
