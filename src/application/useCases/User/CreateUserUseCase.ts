@@ -7,8 +7,16 @@ import { CreateUserDTO } from "../../dto/User/CreateUserDTO";
 export class CreateUserUseCase {
   constructor(private userRepository: IUserRepository) {}
 
-  async execute(user: CreateUserDTO): Promise<Result<User>> { // TODO Implementar
-    throw new Error("Method not implemented.");
+  async execute(createUserDTO: CreateUserDTO): Promise<Result<User>> {
+    const newUser = new User(
+      0,
+      createUserDTO.name,
+      createUserDTO.email,
+      createUserDTO.password,
+      new Date()
+    );
+
+    return await this.userRepository.create(newUser);
   }
 
 }

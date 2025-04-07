@@ -11,7 +11,7 @@ export class User {
     private email: string,
     private password: string,
     private createdAt: Date,
-    private updatedAt: Date,
+    private updatedAt?: Date,
   ) {}
 
   changeName(newName: string): Result<void> {
@@ -47,7 +47,7 @@ export class User {
       name: this.name,
       email: this.email,
       createdAt: this.createdAt,
-      updatedAt: this.updatedAt
+      updatedAt: this.updatedAt ?? null
     }
   }
 
@@ -58,7 +58,7 @@ export class User {
       email: this.email,
       password: this.password,
       createdAt: this.createdAt,
-      updatedAt: this.updatedAt
+      updatedAt: this.updatedAt ?? null
     }
   }
 

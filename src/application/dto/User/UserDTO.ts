@@ -4,5 +4,5 @@ export interface UserDTO {
   password: string,
   email: string,
   createdAt: Date,
-  updatedAt: Date
+  updatedAt: Date | null
 }
