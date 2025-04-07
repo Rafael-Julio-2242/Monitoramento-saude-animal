@@ -19,7 +19,7 @@ Progresso de features:
 * **Cadastro e Identificação dos Animais: 🚧**
   * **Registro Detalhado:** Cada animal deve ter um cadastro único, com informações como identificação (RFID, código de barras), espécie, raça, data de nascimento, histórico de vacinação e tratamentos.
   * **Integração com Sensores:** Integrar dispositivos wearable que monitoram sinais vitais (temperatura, atividade, localização) e associar esses dados ao perfil do animal.
-* **Monitoramento em Tempo Real e Alertas: 🚀**
+* **Monitoramento em Tempo Real e Alertas: 🚧**
   * **Coleta Contínua de Dados:** O sistema deve coletar dados dos sensores em intervalos regulares e armazenar históricos para análise.
   * **Definição de Parâmetros Críticos:** Estabelecer limites para indicadores de saúde (ex.: temperatura acima de 39°C, diminuição abrupta na atividade) que, quando ultrapassados, acionam alertas.
   * **Alertas e Notificações:** Implementar regras que enviem notificações imediatas para o responsável (via SMS, email ou aplicativo) quando forem detectadas anomalias, possibilitando uma ação rápida.
