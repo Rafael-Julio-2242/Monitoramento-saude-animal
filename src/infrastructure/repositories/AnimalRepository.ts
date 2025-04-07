@@ -63,7 +63,8 @@ export class AnimalRepository implements IAnimalRepository {
           breed: animalData.breed,
           birthDate: animalData.birthDate,
           treatments: animalData.treatments,
-          vaccinationHistory: animalData.vaccinationHistory
+          vaccinationHistory: animalData.vaccinationHistory,
+          updatedAt: new Date(),
         },
         where: {
           id: animalData.id

@@ -62,6 +62,10 @@ model SensorData {
   value      Float
   latitude   Float?
   longitude  Float?
+  measurementType String
+  unit            String
+  quality         Float?
+  rawData         Json? 
   
   sensor     Sensor  @relation(fields: [sensorId], references: [id], onDelete: Cascade)
   alerts     Alert[] 
