@@ -1,4 +1,4 @@
-export interface SensorDataDTO {
+export interface CreateSensorDataDTO {
  id: number,
  sensorId: number,
  recordedAt: Date,

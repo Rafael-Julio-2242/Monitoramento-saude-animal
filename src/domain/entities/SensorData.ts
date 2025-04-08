@@ -1,7 +1,6 @@
 import { SensorDataDTO } from "../../application/dto/SensorData/SensorDataDTO";
 import { Result } from "../../shared/core/Result";
 
-
 export class SensorData {
  constructor(
   private id: number,
@@ -10,9 +9,9 @@ export class SensorData {
   private value: number,
   private measurementType: string,
   private unit: string,
-  private latitude?: number,
-  private longitude?: number,
-  private quality?: number,
+  private latitude?: number | null,
+  private longitude?: number | null,
+  private quality?: number | null,
   private rawData?: any
  ) {}
 
@@ -39,7 +38,7 @@ export class SensorData {
   return Result.success();
  }
 
- changePlace({ latitude, longitude }: { latitude: number, longitude: number }): Result<void> {
+ changePlace({ latitude, longitude }: { latitude?: number, longitude?: number }): Result<void> {
   this.latitude = latitude;
   this.longitude = longitude;
   return Result.success();
@@ -65,6 +64,11 @@ export class SensorData {
 
  changeRawData(rawData: any): Result<void> {
   this.rawData = rawData !== undefined ? rawData : null;
+  return Result.success();
+ }
+
+ changeRecordedAt(recordedAt: Date): Result<void> {
+  this.recordedAt = recordedAt;
   return Result.success();
  }
 
