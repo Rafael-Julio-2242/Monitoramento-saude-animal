@@ -79,10 +79,10 @@ This project is a system for grouping and monitoring animal health. It gathers s
 
 ### Business Rules
 
-* **Animal Registration and Identification: 🚀**
+* **Animal Registration and Identification: 🚧**
   * **Detailed Record:** Each animal must have a unique record with information such as identification (RFID, barcode), species, breed, date of birth, vaccination history, and treatments.
   * **Sensor Integration:** Integrate wearable devices that monitor vital signs (e.g., temperature, activity, location) and associate these data with the animal’s profile.
-* **Real-Time Monitoring and Alerts: 🚀**
+* **Real-Time Monitoring and Alerts: 🚧**
   * **Continuous Data Collection:** The system should collect sensor data at regular intervals and store historical data for analysis.
   * **Critical Parameter Definition:** Establish thresholds for health indicators (e.g., temperature above 39°C, sudden drop in activity) that, when exceeded, trigger alerts.
   * **Alerts and Notifications:** Implement rules to send immediate notifications (via SMS, email, or an app) to the responsible party when anomalies are detected, enabling rapid response.
